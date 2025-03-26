@@ -2,7 +2,9 @@
 const nextConfig = {
   output: 'standalone',
   experimental: {
-    serverActions: true,
+    serverActions: {
+      allowedOrigins: ['localhost:3000', '*.onrender.com'],
+    },
   },
   // Ensure compatibility with Node.js 16
   webpack: (config, { isServer }) => {

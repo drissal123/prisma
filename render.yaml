@@ -2,7 +2,7 @@ services:
   - type: web
     name: prisma-nextjs
     env: node
-    buildCommand: npm install && npx prisma generate && node scripts/fix-ui-imports.js && node scripts/prebuild.js && npm run build
+    buildCommand: npm install --include=dev && npm install tailwindcss autoprefixer postcss class-variance-authority clsx tailwind-merge tailwindcss-animate @radix-ui/react-slot && node scripts/ensure-dependencies.js && npx prisma generate && node scripts/fix-ui-imports.js && node scripts/prebuild.js && npm run build
     startCommand: node server.js
     envVars:
       - key: NODE_ENV
