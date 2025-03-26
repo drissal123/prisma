@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm install tailwindcss autoprefixer postcss class-variance-authority clsx tailwind-merge tailwindcss-animate @radix-ui/react-slot --no-save && node scripts/ensure-dependencies.js && node scripts/fix-ui-imports.js && node scripts/fix-layout.js && node scripts/verify-paths.js && next build",
-    "start": "next start",
+    "build": "node scripts/render-setup.js && node scripts/fix-ui-imports.js && next build",
+    "start": "node server.js",
     "lint": "next lint"
   },
   "dependencies": {

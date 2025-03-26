@@ -54,10 +54,19 @@ export default function RootLayout({
   // Check if the globals.css is imported
   if (!layoutContent.includes('./globals.css')) {
     console.log('Adding globals.css import to layout.tsx...');
-    const updatedContent = layoutContent.replace(
-      /import.*?from.*?['"](.*?)['"];/,
-      match => `${match}\nimport "./globals.css";`
-    );
+    
+    // Try different regex patterns to match imports
+    let updatedContent;
+    if (layoutContent.match(/import.*?from.*?['"](.*?)['"];/)) {
+      updatedContent = layoutContent.replace(
+        /import.*?from.*?['"](.*?)['"];/,
+        match => `${match}\nimport "./globals.css";`
+      );
+    } else {
+      // If no import matches, just add it at the beginning
+      updatedContent = `import "./globals.css";\n${layoutContent}`;
+    }
+    
     fs.writeFileSync(layoutPath, updatedContent);
     console.log('Updated layout.tsx with globals.css import');
   }
