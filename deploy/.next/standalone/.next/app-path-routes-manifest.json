@@ -1,0 +1,11 @@
+{
+  "/api/auth/[...nextauth]/route": "/api/auth/[...nextauth]",
+  "/api/users/route": "/api/users",
+  "/api/register/route": "/api/register",
+  "/_not-found/page": "/_not-found",
+  "/favicon.ico/route": "/favicon.ico",
+  "/dashboard/page": "/dashboard",
+  "/page": "/",
+  "/register/page": "/register",
+  "/login/page": "/login"
+}
